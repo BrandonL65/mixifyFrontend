@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Cinzel&display=swap');
+* {
+  padding: 0px;
+  margin: 0px;
+}
+body {
+  color: #f2eee5;
+  background-color: #1b2a49;
+  font-family: 'Cinzel', serif;
+}
+
+.users {
+  text-align: center;
+}
+
+.loginPageDiv {
+  text-align: center;
+  margin-top:10%;
+  height:100vh;
+}
+
+.loginPageLogo {
+  width: 200px;
+  height:auto;
+}
+
+.nameAndProfileDiv {
+  width:25%;
+  margin:20px auto auto 0px;
+  text-align: left;
+
+}
+.profilePic {
+  width: 40px;
+  height: auto;
+  border-radius: 50%;
+  display: inline;
+  vertical-align: middle;
+  margin-left:10px;
+  margin-right:10px;
+  
+}
+.sayHello {
+  display:inline;
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.signoutBtn {
+  display: block;
+  margin: 20px auto auto 27%;
+}
+.playlistsTitle {
+  margin-bottom: 30px;
+}
+.playlistsDiv {
+  margin-top:60px;
+}
+
+.individualPlaylistSection {
+  flex: 0 0 30%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.IndivSong {
+  background-color: #465881;
+  width:80%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:6px;
+  margin-bottom:6px;
+  padding-top:6px;
+  padding-bottom: 6px;
+  padding-left: 30px;
+  text-align: left;
+  color: #f2eee5
+
+}
+
+.IndivSongImg {
+  width:40px;
+  height:auto;
+  border-radius: 50%;
+  display: inline;
+}
+.IndivSongArtist {
+  display: inline;
+  margin-left:30px;
+  font-size:16px;
+}
+.IndivSongName {
+  display: inline;
+  margin-left: 24px;
+  font-size:17px;
+}
+.playlistImg:hover {
+	box-shadow: 6px 6px 6px palevioletred;
+  transform: scale(1.03);
+  transition: all .3s ease-in-out;
+}
