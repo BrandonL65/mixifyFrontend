@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Playlists from "./Playlists.js"
+import NameAndProfile from "./NameAndProfile.js"
+import SearchBar from "./SearchBar"
 export default class UserPage extends Component {
   state = {
     displayName: "",
@@ -34,15 +36,13 @@ export default class UserPage extends Component {
     if (this.state.playlists.length > 0) {
       return (
         <div className = "users">
-          <div className = "nameAndProfileDiv">
-            <img className = "profilePic" src = {this.state.profilePic} alt = "profilePic"></img>
-            <h2 className = "sayHello" >Hello, {this.state.displayName}</h2>
-            <button className = "signoutBtn" onClick = {this.props.logout}>Sign Out</button>
-          </div>
+          <NameAndProfile logout = {this.props.logout} profilePic = {this.state.profilePic} name = {this.state.displayName} />
+          <SearchBar />
           <Playlists accessToken = {this.props.accessToken} allPlaylists = {this.state.playlists}/>
         </div>
       )
     }
+
     else {
       return (
         <React.Fragment>
