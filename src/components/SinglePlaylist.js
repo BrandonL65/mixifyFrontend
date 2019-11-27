@@ -31,8 +31,10 @@ export default class SinglePlaylist extends Component {
     return (
       <div className = "individualPlaylistSection">
         <h3>{this.state.name}</h3>
-        <img onClick = {this.toggleShowSongs } className = "playlistImg" src = {this.state.image} alt = ""></img>
-        {this.state.showPlaylistSongs === true ? <SongsList allSongs = {this.state.allSongs}/> : null}
+        <div className = "playlistImageAndPlayerDiv">
+          <img onClick = {this.toggleShowSongs } className = "playlistImg" src = {this.state.image} alt = ""></img>
+          {this.state.showPlaylistSongs === true ? <SongsList allSongs = {this.state.allSongs} singlePlaylistRender = {this.props.onePlaylist}/> : null}
+        </div>
       </div>
     )
   }

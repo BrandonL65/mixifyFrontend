@@ -1,18 +1,12 @@
 import React, { Component } from 'react'
-import IndivSong from "./IndivSong"
 export default class SongsList extends Component {
 
-  mapAllSongsFromASinglePlaylist = () => {
-    let all = this.props.allSongs.map(song => {
-      return <IndivSong key = {song.track.name} song = {song} />
-    })
-    return all;
-  }
-
   render() {
+    let playlistID = this.props.singlePlaylistRender.uri.split("spotify:playlist:")[1];
+    let playlistSrc = `https://open.spotify.com/embed/playlist/${playlistID}`
     return (
-      <div>
-        {this.mapAllSongsFromASinglePlaylist()}
+      <div className = "playerDiv">
+        <iframe className = "iframe" title = "playlist" src= {playlistSrc} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
       </div>
     )
   }

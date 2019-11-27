@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Playlists from "./Playlists.js"
-import Player from "./Player.js";
 export default class UserPage extends Component {
   state = {
     displayName: "",
@@ -40,7 +39,6 @@ export default class UserPage extends Component {
             <h2 className = "sayHello" >Hello, {this.state.displayName}</h2>
             <button className = "signoutBtn" onClick = {this.props.logout}>Sign Out</button>
           </div>
-          <Player token = {this.props.accessToken}/>
           <Playlists accessToken = {this.props.accessToken} allPlaylists = {this.state.playlists}/>
         </div>
       )
