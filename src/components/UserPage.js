@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Playlists from "./Playlists.js"
 import NameAndProfile from "./NameAndProfile.js"
-import SearchBar from "./SearchBar"
+import SearchSection from "./SearchSection"
 export default class UserPage extends Component {
   state = {
     displayName: "",
@@ -37,7 +37,7 @@ export default class UserPage extends Component {
       return (
         <div className = "users">
           <NameAndProfile logout = {this.props.logout} profilePic = {this.state.profilePic} name = {this.state.displayName} />
-          <SearchBar />
+          <SearchSection token = {this.props.accessToken} />
           <Playlists accessToken = {this.props.accessToken} allPlaylists = {this.state.playlists}/>
         </div>
       )

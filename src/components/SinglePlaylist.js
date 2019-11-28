@@ -12,7 +12,7 @@ export default class SinglePlaylist extends Component {
     let parsedPlaylistSongs = await fetchedPlaylistSongs.json();
     await this.setStateAsync({
       name: this.props.onePlaylist.name,
-      image: this.props.onePlaylist.images[1].url,
+      image: this.props.onePlaylist.images[0].url,
       allSongs: parsedPlaylistSongs.items
     })
   }
