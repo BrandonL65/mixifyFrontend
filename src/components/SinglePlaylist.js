@@ -8,7 +8,7 @@ export default class SinglePlaylist extends Component {
     allSongs: []
   }
   async componentDidMount() {
-    let fetchedPlaylistSongs = await fetch(`http://localhost:5000/playlists/tracks/${this.props.accessToken}/${this.props.onePlaylist.id}`)
+    let fetchedPlaylistSongs = await fetch(`https://mixify-backend.herokuapp.com/playlists/tracks/${this.props.accessToken}/${this.props.onePlaylist.id}`)
     let parsedPlaylistSongs = await fetchedPlaylistSongs.json();
     await this.setStateAsync({
       name: this.props.onePlaylist.name,

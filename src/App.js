@@ -14,6 +14,23 @@ class App extends React.Component {
       tokenTime: Date.now()
     }
   }
+  handleLoadSuccess = async () => {
+    await this.setStateAsync({
+      ...this.state,
+      scriptLoaded: true
+    });
+    let token = this.state.accessToken;
+    let player = new window.Spotify.Player({
+      name: "Web Playback SDK Quick Start Player",
+      getOAuthToken: cb => { cb(token); }
+    })
+    player.connect();
+  }
+
+  cb = (token) => {
+    return token;
+  }
+
   getHashParams() {
     let path = window.location.pathname;
     let removeSlash = path.split("/");
@@ -21,7 +38,7 @@ class App extends React.Component {
     return separatedKeys;
   }
   handleRefresh = async () => {
-    let newToken = await fetch(`http://localhost:5000/refreshToken/${this.state.refreshToken}`)
+    let newToken = await fetch(`https://mixify-backend.herokuapp.com/refreshToken/${this.state.refreshToken}`)
     let parsedToken = await newToken.json();
     if (parsedToken.refresh_token) {
       this.setState({
@@ -58,9 +75,9 @@ class App extends React.Component {
       return (
         <div className = "loginPageDiv">
           <img className = "loginPageLogo" src = {SpotifyLogo} alt = ""></img>
-          <h1>Welcome to Mixify!</h1>
-          <form action ="http://localhost:5000/login">
-            <button>Login Using Spotify</button>
+          <h1 className = "frontPageWelcomeText">Welcome to Mixify!</h1>
+          <form action ="https://mixify-backend.herokuapp.com/login">
+            <button className = "searchButton frontPageLoginButton" >Login Using Spotify</button>
           </form>
         </div>
       )

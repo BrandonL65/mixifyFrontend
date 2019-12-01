@@ -10,7 +10,6 @@ export default class IndividualSearchedSong extends Component {
     })
   }
   render() {
-    console.log(this.props);
     let songSource = `https://open.spotify.com/embed/track/${this.props.song.id}`
     return (
       <div className = "searchedSongDiv" onClick = {this.handleRenderPlayer} >

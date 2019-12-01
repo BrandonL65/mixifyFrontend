@@ -6,15 +6,16 @@ export default class SearchSection extends Component {
     name: "",
     firstThreeSearched: []
   }
-  handleChange = (e) => {
-    this.setState({
+  handleChange = async (e) => {
+    await this.setStateAsync({
+      ...this.state,
       name: e.target.value
     })
   }
   handleSearch = () => {
     if (this.state.name.length > 0) 
     {
-      fetch(`http://localhost:5000/search/${this.props.token}`, {
+      fetch(`https://mixify-backend.herokuapp.com/search/${this.props.token}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -27,16 +28,21 @@ export default class SearchSection extends Component {
       .then(data => {
         this.setState({
           ...this.state,
-          firstThreeSearched: data.tracks.items.slice(0,3)
+          firstThreeSearched: data.tracks.items.slice(0,5)
         })
       });
     }
+  }
+  setStateAsync = (newState) => {
+    return new Promise(resolve => {
+      this.setState(newState,resolve);
+    })
   }
   render() {
     return (
       <div>
         <SearchBar handleChange = {this.handleChange} handleSearch = {this.handleSearch} />
-        {this.state.firstThreeSearched.length > 1 ? <SearchResults results = {this.state.firstThreeSearched}/> : null}
+        {this.state.firstThreeSearched.length > 1 ? <SearchResults key = {this.key} results = {this.state.firstThreeSearched}/> : null}
       </div>
     )
   }
