@@ -55,9 +55,9 @@ export default class UserPage extends Component {
 
     else {
       return (
-        <React.Fragment>
-          <h2> </h2>
-        </React.Fragment>
+          <React.Fragment>
+            <h2> </h2>
+          </React.Fragment>
       )
     }
 

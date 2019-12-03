@@ -4,7 +4,7 @@ export default class AppTitle extends Component {
   render() {
     return (
       <div className = "appTitleDiv">
-        <img className = "userPageLogo"src = {SpotifyLogo} ></img>
+        <img className = "userPageLogo"src = {SpotifyLogo} alt="" ></img>
         <h1>Mixify</h1>
       </div>
     )
