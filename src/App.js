@@ -14,22 +14,6 @@ class App extends React.Component {
       tokenTime: Date.now()
     }
   }
-  handleLoadSuccess = async () => {
-    await this.setStateAsync({
-      ...this.state,
-      scriptLoaded: true
-    });
-    let token = this.state.accessToken;
-    let player = new window.Spotify.Player({
-      name: "Web Playback SDK Quick Start Player",
-      getOAuthToken: cb => { cb(token); }
-    })
-    player.connect();
-  }
-
-  cb = (token) => {
-    return token;
-  }
 
   getHashParams() {
     let path = window.location.pathname;
