@@ -41,6 +41,7 @@ class App extends React.Component {
     console.log(Date.now() - this.state.tokenTime);
     return (Date.now() - this.state.tokenTime)
   }
+
   setStateAsync = (newState) => {
     return new Promise(resolve => {
       this.setState(newState,resolve);
@@ -53,7 +54,6 @@ class App extends React.Component {
       tokenTime: ""
     });
     window.location.pathname= "/";
-    console.log(this.state);
   }
   render() {
     if (!this.state.accessToken) {
