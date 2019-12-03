@@ -18,7 +18,7 @@ class App extends React.Component {
   getHashParams() {
     let path = window.location.pathname;
     let removeSlash = path.split("/");
-    let separatedKeys = queryString.parse(removeSlash[0]);
+    let separatedKeys = queryString.parse(removeSlash[1]);
     return separatedKeys;
   }
   handleRefresh = async () => {
