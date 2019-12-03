@@ -39,6 +39,7 @@ class App extends React.Component {
   }
   timeToken = () => {
     console.log(Date.now() - this.state.tokenTime);
+    return (Date.now() - this.state.tokenTime)
   }
   setStateAsync = (newState) => {
     return new Promise(resolve => {
